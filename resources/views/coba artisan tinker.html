@@ -1,0 +1,32 @@
+php artisan tinker
+
+$cat = new Category
+
+$cat->name = 'Progamming'
+$cat->slug = 'progamming'
+$cat->save()
+
+Category::create([
+    'name' => 'Personal',
+    'slug' => 'personal'
+])
+
+
+Post::create([
+    'title' => 'Judul Ketiga',
+    'category_id' => 3,
+    'slug' => 'judul-ke-tiga',
+    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est commodi temporibus, aliquid ad cupiditate obcaecati sed suscipit repellat neque illum ipsa',
+    'body' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est commodi temporibus, aliquid ad cupiditate obcaecati sed suscipit repellat neque illum ipsa totam asperiores sit ab facere praesentium, dolorum architecto vitae reiciendis dolor?</p><p> Blanditiis fugit incidunt ab pariatur odio repudiandae ea numquam accusantium, tempore unde. At, reprehenderit. Totam labore sequi tempora provident commodi quod ratione ipsam debitis inventore deserunt minima nemo adipisci eveniet, enim minus quisquam deleniti nostrum aliquid dolorum pariatur repellendus libero? Ad, quod.</p><p> fuga! Impedit, alias quae esse dolor voluptatem praesentium amet iure eum deleniti excepturi nam quia cupiditate voluptate sunt magnam accusamus optio? Incidunt iure nam hic modi tempora aliquid ea quaerat debitis dolores repudiandae itaque ducimus quis commodi ullam temporibus autem odio, facilis facere sapiente. Voluptas, ad maiores. Mollitia minus beatae atque, nesciunt necessitatibus dolorum eum. Et fugiat nam, amet at dicta explicabo dolores nulla nesciunt atque.</p>'
+])
+
+Post::find(3)->update(['title'=> 'Judul ketiga berubah']) / Post::where('title', 'Judul ketiga berubah')->update(['excerpt'=>'excerpt post 3 berubah'])
+
+$post = Post::first()
+$post->category
+$post->category->name
+
+
+$category = Cateogry::first()
+$category->post
+
